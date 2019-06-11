@@ -1,6 +1,6 @@
 {
   "name": "popsicle-cookie-jar",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Popsicle middleware for supporting cookies in node.js",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
