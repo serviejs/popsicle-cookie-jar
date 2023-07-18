@@ -90,7 +90,7 @@
     "typescript": "^3.5.1"
   },
   "dependencies": {
-    "@types/tough-cookie": "^2.3.5",
-    "tough-cookie": "^3.0.1"
+    "@types/tough-cookie": "^4.0.2",
+    "tough-cookie": "^4.1.3"
   }
 }
