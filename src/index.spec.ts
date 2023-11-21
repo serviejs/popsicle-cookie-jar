@@ -1,5 +1,6 @@
-import { cookies, CookieJar } from "./index";
+import { describe, expect, it } from "vitest";
 import { Request, Response } from "servie/dist/node";
+import { cookies, CookieJar } from "./index";
 
 describe("popsicle cookie jar", () => {
   const req = new Request("http://example.com/");
@@ -9,8 +10,9 @@ describe("popsicle cookie jar", () => {
     status: 302,
     headers: {
       Location: "/test",
-      "Set-Cookie": "hello=world; expires=Wed, 01 Jan 3000 00:00:00 GMT; path=/"
-    }
+      "Set-Cookie":
+        "hello=world; expires=Wed, 01 Jan 3000 00:00:00 GMT; path=/",
+    },
   });
 
   it("should use cookie store for requests", async () => {

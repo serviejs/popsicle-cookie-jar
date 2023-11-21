@@ -10,7 +10,7 @@ export { CookieJar };
  * Read and write cookies with a cookie jar.
  */
 export function cookies<T extends CommonRequest, U extends CommonResponse>(
-  jar = new CookieJar()
+  jar = new CookieJar(),
 ): (req: T, next: () => Promise<U>) => Promise<U> {
   return async function cookieJar(req, next) {
     const prevCookies = req.headers.getAll("Cookie").join("; ");
@@ -22,7 +22,7 @@ export function cookies<T extends CommonRequest, U extends CommonResponse>(
         if (cookies) {
           req.headers.set(
             "Cookie",
-            prevCookies ? `${prevCookies}; ${cookies}` : cookies
+            prevCookies ? `${prevCookies}; ${cookies}` : cookies,
           );
         }
 
@@ -33,16 +33,16 @@ export function cookies<T extends CommonRequest, U extends CommonResponse>(
     const cookies = res.headers.getAll("set-cookie");
 
     await Promise.all(
-      cookies.map(function(cookie) {
-        return new Promise<void>(function(resolve, reject) {
+      cookies.map(function (cookie) {
+        return new Promise<void>(function (resolve, reject) {
           jar.setCookie(
             cookie,
             req.url,
             { ignoreError: true },
-            (err: Error | null) => (err ? reject(err) : resolve())
+            (err: Error | null) => (err ? reject(err) : resolve()),
           );
         });
-      })
+      }),
     );
 
     return res;
