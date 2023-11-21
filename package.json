@@ -36,34 +36,6 @@
     "specs": "ts-scripts specs",
     "test": "ts-scripts test"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{js,json,css,md}": [
-      "npm run prettier",
-      "git add"
-    ]
-  },
-  "jest": {
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "node"
-    ],
-    "roots": [
-      "<rootDir>/src/"
-    ],
-    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(tsx?|jsx?)$",
-    "transform": {
-      "\\.tsx?$": "ts-jest"
-    }
-  },
   "dependencies": {
     "@types/tough-cookie": "^4.0.2",
     "tough-cookie": "^4.1.3"
